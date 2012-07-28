@@ -1,0 +1,11 @@
+base: &base
+  http_auth_username: app
+  http_auth_password: app
+development:
+  <<: *base
+production:
+  <<: *base
+staging:
+  <<: *base
+test:
+  <<: *base

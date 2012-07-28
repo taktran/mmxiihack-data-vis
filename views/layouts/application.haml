@@ -1,0 +1,59 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:name => "description", :content => ""}
+    %meta{:name => "author", :content => ""}
+    :plain
+      <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+      <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+    %title= "App"
+    / %link{:rel => "shortcut icon", :type => "image/x-icon", :href => ""}/
+
+    %link{:href => "/bootstrap/css/bootstrap.min.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "/css/style.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{ :href => "/bootstrap/css/bootstrap-responsive.css", :type => "text/css", :rel => "stylesheet" }
+
+    %meta{:content => "width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;", :name => "viewport"}/
+  %body{:class => "page-#{@page_name}"}
+    %div
+      .navbar.navbar-fixed-top
+        .navbar-inner
+          .container-fluid
+            %a.brand{:href => '/'} App
+
+    %div
+      = yield
+
+    %footer
+
+    %script{ :type => "text/javascript", :src =>"/bootstrap/js/jquery.js"}
+    %script{ :type => "text/javascript", :src =>"/bootstrap/js/basic/bootstrap-transition.js"}
+    %script{ :type => "text/javascript", :src =>"/bootstrap/js/basic/bootstrap-alert.js"}
+    %script{ :type => "text/javascript", :src =>"/bootstrap/js/basic/bootstrap-modal.js"}
+    %script{ :type => "text/javascript", :src =>"/bootstrap/js/basic/bootstrap-dropdown.js"}
+    %script{ :type => "text/javascript", :src =>"/bootstrap/js/basic/bootstrap-scrollspy.js"}
+    %script{ :type => "text/javascript", :src =>"/bootstrap/js/basic/bootstrap-tab.js"}
+    %script{ :type => "text/javascript", :src =>"/bootstrap/js/basic/bootstrap-tooltip.js"}
+    %script{ :type => "text/javascript", :src =>"/bootstrap/js/basic/bootstrap-popover.js"}
+    %script{ :type => "text/javascript", :src =>"/bootstrap/js/basic/bootstrap-button.js"}
+    %script{ :type => "text/javascript", :src =>"/bootstrap/js/basic/bootstrap-collapse.js"}
+    %script{ :type => "text/javascript", :src =>"/bootstrap/js/basic/bootstrap-carousel.js"}
+    %script{ :type => "text/javascript", :src =>"/bootstrap/js/basic/bootstrap-typeahead.js"}
+    %script{:src => "/js/lib/underscore-min.js", :type => "text/javascript"}
+    %script{:src => "/js/script.js", :type => "text/javascript"}
+
+    %script{:type => "text/javascript"}
+      :plain
+        var $buoop = {vs:{i:6,f:3.5,o:10.6,s:3.2,n:9}}
+        $buoop.ol = window.onload;
+        window.onload=function(){
+         try {if ($buoop.ol) $buoop.ol();}catch (e) {}
+         var e = document.createElement("script");
+         e.setAttribute("type", "text/javascript");
+         e.setAttribute("src", "http://browser-update.org/update.js");
+         document.body.appendChild(e);
+        }
