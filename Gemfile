@@ -5,6 +5,10 @@ gem 'thin'
 gem 'sinatra-flash'
 gem 'rack'
 
+# Data sift
+gem 'yajl-ruby'
+gem 'rest-client'
+
 # Views
 gem 'sass'
 gem 'haml'

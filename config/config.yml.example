@@ -1,6 +1,9 @@
 base: &base
   http_auth_username: app
   http_auth_password: app
+  datasift_username:
+  datasift_api_key:
+  datashift_consumer_stream:
 development:
   <<: *base
 production:

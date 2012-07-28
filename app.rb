@@ -4,6 +4,7 @@ require 'sinatra'
 require 'sinatra/flash'
 require 'sass'
 require 'haml'
+require_relative 'lib/datasift/lib/datasift'
 
 # Require all in lib directory
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file }
@@ -62,6 +63,12 @@ end
 get '/' do
   @page_name = "home"
   haml :index, :layout => :'layouts/application'
+end
+
+get '/stream' do
+  datasift_user = DataSift::User.new(settings.config['datasift_username'], settings.config['datasift_api_key'])
+  consumer = datasift_user.getConsumer(DataSift::StreamConsumer::TYPE_HTTP, settings.config['datashift_consumer_stream'])
+
 end
 
 # -----------------------------------------------------------------------
