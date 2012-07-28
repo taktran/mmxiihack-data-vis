@@ -3,3 +3,6 @@
 .DS_Store
 tmp/**/*
 tmp
+
+# Ignore config file
+config/config.yml
