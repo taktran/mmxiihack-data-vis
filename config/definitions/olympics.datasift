@@ -1,0 +1,14 @@
+// sentiment
+tag "Positive" { salience.content.sentiment > 1 }
+tag "Neutral"  { salience.content.sentiment <= 1 and salience.content.sentiment >= -1 }
+tag "Negative" { salience.content.sentiment < -1 }
+
+return {
+interaction.sample < 1 and (
+interaction.content contains "olympic"
+or interaction.title contains "olympics"
+or links.title contains "olympics"
+or interaction.content contains "#london2012"
+or interaction.title contains "#london2012"
+)
+}

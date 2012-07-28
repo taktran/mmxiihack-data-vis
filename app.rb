@@ -65,9 +65,23 @@ get '/' do
   haml :index, :layout => :'layouts/application'
 end
 
+def load_definition(name)
+  filepath = "#{File.dirname(__FILE__)}/config/definitions/#{name}.datasift"
+  File.open(filepath, "rb").read
+end
+
 get '/stream' do
   datasift_user = DataSift::User.new(settings.config['datasift_username'], settings.config['datasift_api_key'])
-  consumer = datasift_user.getConsumer(DataSift::StreamConsumer::TYPE_HTTP, settings.config['datashift_consumer_stream'])
+  definition_name = "olympics"
+
+  definition = datasift_user.createDefinition(load_definition(definition_name))
+  consumer = definition.getConsumer(DataSift::StreamConsumer::TYPE_HTTP)
+
+  # TODO: Figure out how to get out of the loop
+  # consumer.consume(true) do |interaction|
+  #   puts interaction if interaction
+  #   return
+  # end
 
 end
 
